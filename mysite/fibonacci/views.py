@@ -30,9 +30,19 @@ def print_fibonacci_series(request):
     return render(request, 'fibonacci/name.html', {'form': form})
 
 def recur_fibo(n):
-   """Recursive function to
-   print Fibonacci sequence"""
-   if n <= 1:
-       return n
-   else:
-       return(recur_fibo(n-1) + recur_fibo(n-2))
+   
+    if n <= 1:
+	return n
+    else if n==2:
+	return 1
+  # temp1, temp2 to keep track of (p-2)th and (p-1)th term respectively and temp3 is pth term: p is any number
+    else:
+        temp1=1
+	temp2=1
+	while (n>2):
+	    temp3=temp1+temp2
+    	    temp1=temp2
+	    temp2=temp3
+	    n-=1
+	return temp3
+       
